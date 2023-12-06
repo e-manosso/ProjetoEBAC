@@ -121,49 +121,62 @@ int deletar()	//Função responsavel por deletar o usuário
 
 int main()
 {
-	int menu=0, laco=0;
+	int menu=0, laco=0, comp_senha;
+	char senha[10]="a";
 	setlocale(LC_ALL, "Portuguese");
-	
-	
-	for(laco=1;laco=1;)	//laço de repetição do menu
-	{
-	
-		system("cls");
-		printf("|||		Listagem de Usuários da EBAC		|||\n\n");
-		printf("Escolha a opção desejada no menu:\n\n");
-		printf("\t*1 - Registrar novo nome de usuário\n");
-		printf("\t*2 - Consultar nomes registrados\n");
-		printf("\t*3 - Deletar usuário\n");
-		printf("\n\t*4 - Finalizar o Programa\n");
-		printf("Opção: ");
-		scanf("%d", &menu);
-		system("cls");
-		//printf("\n\n***Esse Software é de livre uso dos alunos da EBAC***\n***Desenvolvido por Erik Luiz Manosso***");
-	
-		switch(menu)	//escolha da opção do menu
-		{
-			case 1:
-				registro();
-			break;
-			
-			case 2:
-				consulta();
-			break;
-			
-			case 3:
-				deletar();
-			break;
-				
-			case 4:
-				return 0;
-			break;
-				
-			default:
-				printf("Opção invalida, tente novamente\n");
-				system("pause");
-			break;
-		}
 		
+	printf("|||		Listagem de Usuários da EBAC		|||\n\n");
+	printf("\n\nDigite a senha para acessar o programa: ");
+	scanf("%s", senha);
+	
+	comp_senha = strcmp(senha,"admin");		//função que compara os valores da senha fornecida com a registrada no sistema e salva o valor na variavel, será 0 no caso de ser igual
+	
+	if(comp_senha == 0)
+	{
+		for(laco=1;laco=1;)	//laço de repetição do menu
+		{
+		
+			system("cls");
+			printf("|||		Listagem de Usuários da EBAC		|||\n\n");
+			printf("Escolha a opção desejada no menu:\n\n");
+			printf("\t*1 - Registrar novo nome de usuário\n");
+			printf("\t*2 - Consultar nomes registrados\n");
+			printf("\t*3 - Deletar usuário\n");
+			printf("\n\t*4 - Finalizar o Programa\n");
+			printf("Opção: ");
+			scanf("%d", &menu);
+			system("cls");
+			//printf("\n\n***Esse Software é de livre uso dos alunos da EBAC***\n***Desenvolvido por Erik Luiz Manosso***");
+		
+			switch(menu)	//escolha da opção do menu
+			{
+				case 1:
+					registro();
+				break;
+				
+				case 2:
+					consulta();
+				break;
+				
+				case 3:
+					deletar();
+				break;
+					
+				case 4:
+					return 0;
+				break;
+					
+				default:
+					printf("Opção invalida, tente novamente\n");
+					system("pause");
+				break;
+			}
+			
+		}
+	}
+	else{
+		printf("Senha invalida!\n");
+		system("pause");
 	}
 	
 }
