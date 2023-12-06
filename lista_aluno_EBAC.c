@@ -156,6 +156,7 @@ int main()
 			printf("\t*1 - Registrar novo nome de usuário\n");
 			printf("\t*2 - Consultar nomes registrados\n");
 			printf("\t*3 - Deletar usuário\n");
+			printf("\n\t*4 - Finalizar o Programa\n");
 			printf("Opção: ");
 			scanf("%d", &menu);
 			system("cls");
@@ -173,6 +174,10 @@ int main()
 				
 				case 3:
 					deletar();
+				break;
+				
+				case 4:
+					return 0;
 				break;
 								
 				default:
